@@ -52,12 +52,13 @@ class Hangman {
     }
     
     func guesses() -> String {
-        if guessedLetters!.count > 0 {
+        if guessedLetters!.count == 0 {
             return ""
         }
-        var result: String = guessedLetters!.objectAtIndex(0) as! String
+        var result = ""
         for (var i = 0; i < guessedLetters!.count; i += 1) {
-            result = result + ", \(guessedLetters?.objectAtIndex(i))"
+            let letter: String = guessedLetters!.objectAtIndex(i) as! String
+            result = result + letter + " "
         }
         return result
     }
